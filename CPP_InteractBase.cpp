@@ -18,7 +18,7 @@ ACPP_InteractBase::ACPP_InteractBase()
 	Interact->SetGenerateOverlapEvents(true);
 	Interact->SetWorldScale3D(FVector(1.0f,1.0f,1.0f));
 
-	//TestInvBar = CreateDefaultSubobject<UCPP_InventoryBar>(TEXT("TestInvBar"));	
+	TestInvBar = CreateDefaultSubobject<UCPP_InventoryBar>(TEXT("TestInvBar"));	
 	Interact->OnComponentBeginOverlap.AddDynamic(this, &ACPP_InteractBase::OverlapBeginInteractable);
 	Interact->OnComponentEndOverlap.AddDynamic(this, &ACPP_InteractBase::OverlapEndInteractable);
 }
@@ -47,7 +47,7 @@ void ACPP_InteractBase::OverlapBeginInteractable(class UPrimitiveComponent* Over
 
 	bItemInRange = true;
 	GetPlayer(OtherActor);
-	TestInvBar = NewObject<UCPP_InventoryBar>(GetWorld(),InventoryBarClass);
+	//TestInvBar = NewObject<UCPP_InventoryBar>(GetWorld(),InventoryBarClass);
 }	
 
 void ACPP_InteractBase::OverlapEndInteractable(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex){
